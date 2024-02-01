@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //  JS는 생성자가 class를 비롯한 어디에도 소속되어 있지 않다. 그리고 이 함수에 new를 붙여서 실행하게 되면 새로운 객체를 만들게 된다.
+      //  즉, 함수 앞에 new를 붙이면 그 return 값은 객체가 된다.
+
+      function Person(name) {
+        this.name = name;
+        this.introduce = function () {
+          return "My name is " + this.name;
+        };
+      }
+      var p1 = new Person("goody");
+      console.log(p1.introduce());
+
+      var p2 = new Person("baddy");
+      console.log(p2.introduce());
+
+      // ---------------------------------------------------------------
+
+      class Introduce {
+        constructor(name) {
+          this.name = name;
+        }
+        introduce() {
+          console.log(`Hello, my name is ${this.name}`);
+        }
+      }
+
+      const otto = new Introduce("Otto");
+
+      otto.introduce();
+    </script>
+  </body>
+</html>
